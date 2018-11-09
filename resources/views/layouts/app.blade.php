@@ -12,11 +12,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Scripts -->
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/browser.min.js') }}"></script>
-    <script src="{{ asset('js/breakpoints.min.js') }}"></script>
-    <script src="{{ asset('js/util.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.scrolly.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.dropotron.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.scrollex.min.js') }}" defer></script>
+    <script src="{{ asset('js/browser.min.js') }}" defer></script>
+    <script src="{{ asset('js/breakpoints.min.js') }}" defer></script>
+    <script src="{{ asset('js/util.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -27,14 +30,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{--<link href="{{asset('css/reset.css')}}" type="text/css" rel="stylesheet">--}}
-    {{--<link href="{{asset('css/main.css')}}" type="text/css" rel="stylesheet">--}}
+    <link href="{{asset('css/main.css')}}" type="text/css" rel="stylesheet">
 </head>
-<body>
-<div id="is-preload">
+<body class="landing">
+<div id="app">
+    <div id="page-wrapper">
     {{--<main class="py-4">--}}
-    <main>
         @yield('content')
-    </main>
+    </div>
 </div>
 </body>
 </html>
