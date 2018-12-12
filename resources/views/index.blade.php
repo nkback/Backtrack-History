@@ -3,7 +3,7 @@
 
     <!-- Header -->
     <header id="header">
-        <h1 id="logo"><a href="index.html">Landed</a></h1>
+        <h1 id="logo"><a href="index.html">Backtrack History</a></h1>
         <nav id="nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -25,7 +25,28 @@
                     </ul>
                 </li>
                 <li><a href="elements.html">Elements</a></li>
-                <li><a href="#" class="button primary">Sign Up</a></li>
+                {{--<li><a href="#"><span data-toggle="modal" data-target="#myModal" class="fa fa-search"></span></a></li>--}}
+                <li><a href="#"><podcast-search></podcast-search></a></li>
+                @if (\Illuminate\Support\Facades\Auth::user())
+                    {{--<li><a href="#" class="button primary">Sign Up</a></li>--}}
+                    <li>
+                        <a href="#">Welcome, {{\Illuminate\Support\Facades\Auth::user()->first_name}}</a>
+                        <ul>
+                            @if(\Illuminate\Support\Facades\Auth::user()->admin)
+                                <li><a href="#">Add Episode</a></li>
+                            @endif
+                            <li><a href="{{route('logout')}}">Logout</a></li>
+                        </ul>
+                    </li>
+                @else
+                    <li>
+                        <a href="#">Sign In</a>
+                        <ul>
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Sign Up</a></li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </nav>
     </header>
@@ -186,4 +207,40 @@
             <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
         </ul>
     </footer>
+    {{--@include('layouts.modal')--}}
+    {{--<div class="modal fade" id="podcastSearchModal" aria-hidden="true">--}}
+        {{--<div class="modal-dialog">--}}
+            {{--<div class="modal-content">--}}
+                {{--<div class="modal-header">--}}
+                    {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>--}}
+                    {{--<h4 class="modal-title">My Modal</h4>--}}
+                {{--</div>--}}
+                {{--<div class="modal-body">--}}
+                    {{--<p>My Modal Body</p>--}}
+                {{--</div>--}}
+                {{--<div class="modal-footer">--}}
+                    {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 @endsection

@@ -18,7 +18,9 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
+Vue.component('podcast-search', require('./components/PodcastSearch.vue'));
+import VModal from 'vue-js-modal';
+Vue.use(VModal);
 // const files = require.context('./', true, /\.vue$/i)
 
 // files.keys().map(key => {
