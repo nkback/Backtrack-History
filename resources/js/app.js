@@ -19,6 +19,9 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('podcast-search', require('./components/PodcastSearch.vue'));
+Vue.component('add-post', require('./components/AddPost.vue'));
+Vue.component('file-upload', require('./components/FileUpload.vue'));
+
 import VModal from 'vue-js-modal';
 Vue.use(VModal);
 // const files = require.context('./', true, /\.vue$/i)

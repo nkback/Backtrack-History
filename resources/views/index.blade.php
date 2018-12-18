@@ -33,7 +33,7 @@
                         <a href="#">Welcome, {{\Illuminate\Support\Facades\Auth::user()->first_name}}</a>
                         <ul>
                             @if(\Illuminate\Support\Facades\Auth::user()->admin)
-                                <li><a href="#">Add Episode</a></li>
+                                <li><a href="{{route('add-post')}}">Add Episode</a></li>
                             @endif
                             <li><a href="{{route('logout')}}">Logout</a></li>
                         </ul>
