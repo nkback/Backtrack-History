@@ -12,6 +12,10 @@
                                 <input id="title" type="text" class="form-control" name="title" required autofocus>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="short_description">Short Description:</label>
+                            <textarea id="short_description" name="short_description" class="form-control" required></textarea>
+                        </div>
                         <vue-editor v-model="content"></vue-editor>
                         <textarea name="blog_content" id="blog_content" style="display: none;"></textarea>
                         <div class="form-group row mb-0">

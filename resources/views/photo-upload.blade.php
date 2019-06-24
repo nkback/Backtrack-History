@@ -10,12 +10,12 @@
                         <div class="card">
                             <div class="card-header">Upload Cover Photo</div>
                             <div class="card-body">
-                                <file-upload></file-upload>
+                                <file-upload url="{{route('add-photo')}}" episode-id="{{$id}}" ></file-upload>
                                 <div class="form-group row mb-0">
                                     <div class="float-left" style="margin-left: 14px; margin-top: 10px;">
-                                        <button type="submit" class="btn btn-primary">
+                                        <a href="/show/audio-page/{{$id}}" class="btn btn-primary">
                                             Continue
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

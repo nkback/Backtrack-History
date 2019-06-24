@@ -4101,3 +4101,7 @@ body.is-touch #banner {
   }
 }
 
+#multiselectapp > div > div > div.v--modal-box.v--modal > div:nth-child(3) > div > input {
+  color: black !important;
+}
+

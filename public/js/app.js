@@ -51670,6 +51670,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -51720,6 +51724,8 @@ var render = function() {
             [
               _vm._m(0),
               _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
               _c("vue-editor", {
                 model: {
                   value: _vm.content,
@@ -51766,7 +51772,7 @@ var render = function() {
       ])
     ]),
     _vm._v("\n     \n    "),
-    _vm._m(1)
+    _vm._m(2)
   ])
 }
 var staticRenderFns = [
@@ -51797,6 +51803,25 @@ var staticRenderFns = [
           }
         })
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "short_description" } }, [
+        _vm._v("Short Description:")
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: {
+          id: "short_description",
+          name: "short_description",
+          required: ""
+        }
+      })
     ])
   },
   function() {
@@ -51940,15 +51965,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             dropzoneOptions: {
-                url: 'https://httpbin.org/post',
+                url: this.url,
                 thumbnailWidth: 150,
-                maxFilesize: 0.5,
-                headers: { "My-Awesome-Header": "header value" },
+                maxFilesize: 2,
+                headers: { "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content },
                 maxFiles: 1,
                 addRemoveLinks: true,
                 dictDefaultMessage: "<i class='fa fa-cloud-upload'></i> UPLOAD ME"
             }
         };
+    },
+    methods: {
+        sendingEvent: function sendingEvent(file, xhr, formData) {
+            formData.append('episodeId', this.episodeId);
+        }
+    },
+    props: ['url', 'episodeId'],
+    mounted: function mounted() {
+        console.log(this.episodeId);
     }
 });
 
@@ -52469,7 +52503,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("vue-dropzone", {
     ref: "myVueDropzone",
-    attrs: { id: "dropzone", options: _vm.dropzoneOptions }
+    attrs: {
+      id: "dropzone",
+      name: "dropzonePhoto",
+      options: _vm.dropzoneOptions
+    },
+    on: { "vdropzone-sending": _vm.sendingEvent }
   })
 }
 var staticRenderFns = []

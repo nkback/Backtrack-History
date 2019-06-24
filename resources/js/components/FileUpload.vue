@@ -1,5 +1,5 @@
 <template>
-    <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
+    <vue-dropzone ref="myVueDropzone" id="dropzone" name="dropzonePhoto" :options="dropzoneOptions" v-on:vdropzone-sending="sendingEvent"></vue-dropzone>
 </template>
 
 <script>
@@ -12,15 +12,24 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
         data: function () {
             return {
                 dropzoneOptions: {
-                    url: 'https://httpbin.org/post',
+                    url: this.url,
                     thumbnailWidth: 150,
-                    maxFilesize: 0.5,
-                    headers: { "My-Awesome-Header": "header value" },
+                    maxFilesize: 2,
+                    headers: { "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content },
                     maxFiles: 1,
                     addRemoveLinks: true,
                     dictDefaultMessage: "<i class='fa fa-cloud-upload'></i> UPLOAD ME"
                 }
             }
+        },
+        methods: {
+            sendingEvent (file, xhr, formData) {
+                formData.append('episodeId', this.episodeId);
+            }
+        },
+        props: ['url', 'episodeId'],
+        mounted(){
+            console.log(this.episodeId);
         }
     }
 </script>

@@ -8,13 +8,13 @@
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <div class="card">
-                            <div class="card-header">Upload Audio</div>
+                            <div class="card-header">Upload Complete!</div>
                             <div class="card-body">
-                                <file-upload episode-id="{{$episodeId}}" url="{{route('add-audio')}}"></file-upload>
+                                Your upload for "{{$episode->title}}" has been completed. You can see it with the other episodes. Good job Stubies.
                                 <div class="form-group row mb-0">
                                     <div class="float-left" style="margin-left: 14px; margin-top: 10px;">
-                                        <a href="/post/finish/{{$episodeId}}" class="btn btn-primary">
-                                            Continue
+                                        <a href="/" class="btn btn-primary">
+                                            Home
                                         </a>
                                     </div>
                                 </div>
@@ -24,7 +24,7 @@
                 </div>
                 &nbsp;
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 75%;">75%</div>
+                    <div class="progress-bar" role="progressbar" style="width: 100%;">100%</div>
                 </div>
             </div>
         </div>

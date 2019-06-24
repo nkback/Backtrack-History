@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('index');
 })->name('landing-page');
+
+Route::get('/episodes', 'BlogController@index');
 Route::get('/test', function(){
     return view('welcome');
 });
@@ -24,6 +26,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/add/photo', 'PostController@addPhoto')->name('add-photo');
     Route::post('/add/audio', 'PostController@addAudio')->name('add-audio');
     Route::post('/final/save', 'PostController@finalSave')->name('final-save');
+    Route::get('/post/finish/{id}', 'PostController@finish');
+    Route::get('/show/audio-page/{id}', 'PostController@audioPage');
 });
 
 

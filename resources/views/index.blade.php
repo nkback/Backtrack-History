@@ -24,7 +24,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="elements.html">Elements</a></li>
+                <li><a href="/episodes">Episodes</a></li>
                 {{--<li><a href="#"><span data-toggle="modal" data-target="#myModal" class="fa fa-search"></span></a></li>--}}
                 <li><a href="#"><podcast-search></podcast-search></a></li>
                 @if (\Illuminate\Support\Facades\Auth::user())
